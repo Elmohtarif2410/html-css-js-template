@@ -1,0 +1,65 @@
+/*********************************************************************
+************************* Style Global Rouls *************************
+*********************************************************************/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+:root {
+
+}
+
+body {
+    font-family: sans-serif, Tahoma, Geneva, Verdana;
+}
+
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+@media (min-width: 768) {
+    .container {width: 750px}
+}
+
+@media (min-width: 992px) {
+    .container {width: 970px}
+}
+
+@media (min-width: 1200px) {
+    .container {width: 1170px}
+}
+
+button {
+    background: none
+}
+
+button:focus {
+    outline: none
+}
+
+ul {
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+}
+
+/********************** End Style Global Rouls ***********************/
+
+
+
+
+
+/*********************************************************************
+************************** Style to project **************************
+*********************************************************************/

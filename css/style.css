@@ -12,11 +12,13 @@ html {
 }
 
 :root {
-
+    --main-padding: 80px;
+    --main-color: #09d9ff;
+    --main-transition: .4s;
 }
 
 body {
-    font-family: sans-serif, Tahoma, Geneva, Verdana;
+    font-family: 'Open Sans', sans-serif, Tahoma, Geneva, Verdana;
 }
 
 .container {
@@ -63,3 +65,113 @@ a {
 /*********************************************************************
 ************************** Style to project **************************
 *********************************************************************/
+
+/* Start style landding page */
+
+.landding {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url(../images/landding-1.jpg);
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.landding::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: -1;
+}
+
+/* Start style navigation */
+
+nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo img {
+   width: 120px;
+}
+
+nav .toggler {
+    display: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    transition: var(--main-transition);
+    z-index: 1;
+}
+
+/* when click toggler button => add class active */
+nav .toggler.active {
+    color: var(--main-color)
+}
+
+nav .toggler.active ~ ul.links {
+    width: 250px;
+}
+
+nav .toggler:hover {
+    color: var(--main-color);
+}
+
+nav ul.links {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+nav ul.links li a {
+    display: block;
+    color: white;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    transition: var(--main-transition);
+}
+
+nav ul.links li a:hover {
+    color: var(--main-color)
+}
+
+
+@media (max-width: 767px) {
+    nav ul.links {
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding-top: 80px;
+        width: 0;
+        transition: var(--main-transition);
+    }
+    
+    nav ul.links li a {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        border-top: 1px solid #ccc;
+    }
+
+    nav .toggler {
+        display: block;
+    }
+}
+
+/* End style navigation */
+
+/* Start style landding page */

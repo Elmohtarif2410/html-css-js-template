@@ -14,7 +14,9 @@ html {
 :root {
     --main-padding: 80px;
     --main-color: #09d9ff;
+    --secound-color: #607d8b;
     --main-transition: .4s;
+    --line-height: 1.6
 }
 
 body {
@@ -58,8 +60,77 @@ a {
 
 /********************** End Style Global Rouls ***********************/
 
+/* start style special sections */
 
+.setting {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 100;
+    width: 250px;
+    background-color: var(--secound-color);
+    color: white;
+    transition: 1s;
+}
 
+.setting.open {
+    transform: translateX(0);
+}
+
+.setting .gear-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    padding: 10px;
+    background-color: var(--secound-color);
+    color: white;
+    font-size: 24px;
+    transform: translate(100%, -50%);
+    cursor: pointer;
+}
+
+.setting .content {
+    padding: 40px 25px
+}
+
+.setting .content article {
+
+}
+
+.setting .content article h3 {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.setting .content article h3::after {content: " :"}
+
+.setting .content article ul.colors {
+    display: flex;
+    gap: 8px;
+}
+
+.setting .content ul.colors li {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.setting .content ul.colors li.active {
+    opacity: 1;
+}
+
+.setting .content ul.colors li:nth-of-type(1) {background-color: #09d9ff}
+.setting .content ul.colors li:nth-of-type(2) {background-color: #f44336}
+.setting .content ul.colors li:nth-of-type(3) {background-color: #009688}
+.setting .content ul.colors li:nth-of-type(4) {background-color: #2196f3}
+.setting .content ul.colors li:nth-of-type(5) {background-color: #8bc34a}
+
+/* End style special sections */
 
 
 /*********************************************************************
@@ -76,6 +147,7 @@ a {
     position: relative;
     z-index: 1;
     overflow: hidden;
+    transition: 1s;
 }
 
 .landding::before {
@@ -100,11 +172,16 @@ nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--main-color);
 }
 
-nav .logo img {
+nav .logo svg {
    width: 120px;
 }
+
+nav .logo svg g {stroke: var(--main-color)}
+nav .logo svg g circle {fill: var(--main-color)}
+nav .logo svg > path {fill: var(--main-color)}
 
 nav .toggler {
     display: none;
@@ -112,7 +189,7 @@ nav .toggler {
     color: white;
     cursor: pointer;
     transition: var(--main-transition);
-    z-index: 1;
+    z-index: 2;
 }
 
 /* when click toggler button => add class active */
@@ -142,6 +219,7 @@ nav ul.links li a {
     transition: var(--main-transition);
 }
 
+nav ul.links li a.active,
 nav ul.links li a:hover {
     color: var(--main-color)
 }
@@ -159,6 +237,7 @@ nav ul.links li a:hover {
         padding-top: 80px;
         width: 0;
         transition: var(--main-transition);
+        z-index: 1;
     }
     
     nav ul.links li a {
@@ -174,4 +253,44 @@ nav ul.links li a:hover {
 
 /* End style navigation */
 
-/* Start style landding page */
+/* start style Introdaction heading */
+
+.intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white
+}
+
+.intro h1 {
+    text-transform: capitalize;
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.intro h1 span {
+    color: var(--main-color);
+}
+
+.intro p {
+    line-height: var(--line-height);
+    font-size: 18px;
+}
+
+@media (max-width: 767px) {
+    .intro h1 {
+        font-size: 24px;
+    }
+
+    .intro p {
+        font-size: 16px;
+    }
+}
+
+/* End style Introdaction heading */
+
+/* End style landding page */

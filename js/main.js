@@ -200,3 +200,88 @@ window.onscroll = () => {
         })
     }
 }
+
+/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$ functionality to Gallery popup $$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+
+// set varible
+const galleryImages = document.querySelectorAll(".gallery .image");
+
+galleryImages.forEach((img) => {
+    // image gallery on click
+    img.addEventListener("click", () => {
+        // image clicked src
+        imageSrc = img.firstElementChild.src;
+        // image clicked dataset title
+        imageTitle = img.firstElementChild.dataset.title;
+        // create popup function
+        createPopupGallery(imageSrc, imageTitle);
+        // body overflow => hidden
+        document.body.style.overflow = "hidden";
+    })
+});
+
+// Close popup gallery
+document.addEventListener("click", (e) => {
+    // set varible
+    const closePopupSpan = document.querySelector(".popup-close"); // close popup span
+    const popupGallery = document.querySelector(".popup-overlay");
+    const popupOverlay = document.querySelector(".popup-gallery");
+
+    // In the event that the target is close Popup Span
+    if (e.target === closePopupSpan) {
+        // remove the popup gallery
+        popupGallery.remove();
+        // remove the overlay popup
+        popupOverlay.remove();
+        // body overflow => auto
+        document.body.style.overflow = "auto";
+    }
+})
+
+
+// Function creat popup gallery
+function createPopupGallery(src, title) {
+    // create popup overlay element
+    let popupOverlayElement = document.createElement("div");
+    // add class popup-overlay to popupOverlayElement
+    popupOverlayElement.classList.add("popup-overlay");
+    // append popupOverlayElement to body
+    document.body.appendChild(popupOverlayElement);
+
+    // create popup image
+    let popupImageElement = document.createElement("div");
+    // add class popup-overlay to popupOverlayElement
+    popupImageElement.classList.add("popup-gallery");
+
+    // create heading title popup image
+    if (title !== undefined) {
+        let popupImageTitle = document.createElement("h4");
+        // addtion text to popupImageTitle => image clicked dataset title
+        popupImageTitle.textContent = title;
+        // append popupImageTitle to popupImageElement
+        popupImageElement.appendChild(popupImageTitle);
+    }
+
+    // create image popup image
+    let popupImageimage = document.createElement("img");
+    // add src to this image by image clicked src
+    popupImageimage.setAttribute("src", src);
+    // add alt to this image => "our gallery"
+    popupImageimage.setAttribute("alt", "Our Gallery");
+    // append popupImageTitle to popupImageElement
+    popupImageElement.appendChild(popupImageimage);
+
+    // creat close popup span 
+    let closePopupSpan = document.createElement("span");
+    // add class popup-close
+    closePopupSpan.classList.add("popup-close");
+    // addtion text to closePopupSpan
+    closePopupSpan.textContent = "×";
+    // append closePopupSpan to popupImageElement
+    popupImageElement.appendChild(closePopupSpan);
+
+    // append popupOverlayElement to body
+    document.body.appendChild(popupImageElement);
+}

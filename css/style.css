@@ -15,6 +15,7 @@ html {
     --main-padding: 80px;
     --main-color: #09d9ff;
     --secound-color: #607d8b;
+    --text-color: #777;
     --main-transition: .4s;
     --line-height: 1.6
 }
@@ -322,3 +323,66 @@ nav ul.links li a:hover {
 /* End style Introdaction heading */
 
 /* End style landding page */
+
+/* start style about us */
+
+.about-us {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+
+.about-us .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-us .container article {
+    flex: 1
+}
+
+.about-us .content h2 {
+    font-size: 40px;
+    color: var(--main-color);
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.about-us .content p {
+    font-size: 18px;
+    line-height: var(--line-height);
+    color: var(--text-color);
+}
+
+.about-us .image svg {
+    max-width: 100%;
+    animation: anmation-top-down 1s linear  infinite alternate;
+}
+
+.about-us .image svg:hover {
+    animation-play-state: paused;
+}
+
+/* media Quirys */
+@media (max-width: 767px) {
+    .about-us .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .about-us article {
+        text-align: center;
+    }
+
+    .about-us .image svg {
+        max-width: 350px
+    }
+}
+
+/* Animation */
+@keyframes anmation-top-down {
+    to {
+        transform: translateY(-25px) scale(1.05);
+    }
+}
+/* End style about us */

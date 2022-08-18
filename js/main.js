@@ -172,3 +172,31 @@ function randomBackgroundImage() {
 
 // call up function random Background Image
 randomBackgroundImage();
+
+
+/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$ functionality to skills Anmainot $$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+
+// set Varible 
+const progressElements = document.querySelectorAll(".skills .progress span");
+const skillsSection = document.querySelector(".skills");
+const skillsSectionHeight = skillsSection.offsetHeight;
+const skillsSectionPageHeight = skillsSection.offsetTop;
+const windowInnerHeight = window.innerHeight;
+
+window.onscroll = () => {
+    // window scrolling Vertical
+    let windowScrollingVertical = window.scrollY;
+    // Equation Running Anmation => skills height ( plus ) skills away top sart page ( minus ) window height 
+    let EquationRunningAnmation = (skillsSectionHeight + skillsSectionPageHeight) - windowInnerHeight
+
+    // if window scrolling Vertical greater than or equal to ( >= ) Equation Running Anmation
+    if (windowScrollingVertical >= EquationRunningAnmation) {
+        // loop in progress Elements
+        progressElements.forEach((prog) => {
+            // turn on Animation
+            prog.style.animationPlayState = "running";
+        })
+    }
+}

@@ -61,7 +61,48 @@ a {
 
 /********************** End Style Global Rouls ***********************/
 
-/* start style special sections */
+/********************** start Style commpotants ***********************/
+
+.main-heading {
+    width: fit-content;
+    margin: 0 auto var(--main-padding);
+    text-transform: uppercase;
+    font-size: 50px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--main-color);
+    user-select: none;
+    padding: 15px;
+    border: 2px solid var(--main-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-heading::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 0;
+    -webkit-text-fill-color: var(--main-color);
+    white-space: nowrap;
+    overflow: hidden;
+    transition: .7s;
+}
+
+.main-heading:hover::before {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .main-heading {
+        font-size: 30px;
+    }
+}
+
+/********************** End Style commpotants ***********************/
+
+/********************** start style special sections ***********************/
 
 .setting {
     position: fixed;
@@ -385,4 +426,70 @@ nav ul.links li a:hover {
         transform: translateY(-25px) scale(1.05);
     }
 }
+
 /* End style about us */
+
+/* Start style skills */
+
+.skills {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    background-color: #eee;
+}
+
+.skills article.skill {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 7px;
+}
+
+.skills article.skill:last-of-type {
+    margin-bottom: 0;
+}
+
+.skills article.skill h3 {
+    text-transform: uppercase;
+    width: 120px;
+}
+
+.skills article.skill .progress {
+    background-color: #f9f9f9;
+    height: 30px;
+    position: relative;
+    border-radius: 100px;
+    width: 100%;
+}
+
+.skills article.skill .progress span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--main-color);
+    border-radius: inherit;
+    animation: anmation_skills 1.5s;
+    animation-play-state: paused;
+}
+
+@media (max-width: 767px) {
+
+    .skills article.skill {
+        flex-direction: column;
+    }
+
+    .skills article.skill h3 {
+        text-align: center;
+    }
+}
+
+@keyframes anmation_skills {
+    from {
+        width: 0
+    }
+}
+
+/* End style skills */

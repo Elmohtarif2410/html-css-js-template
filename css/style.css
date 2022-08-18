@@ -493,3 +493,32 @@ nav ul.links li a:hover {
 }
 
 /* End style skills */
+
+/* Start style Gallery */
+
+.gallery {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+
+.gallery .gallery-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px
+}
+
+.gallery .gallery-images .image {
+    height: 250px;
+    cursor: pointer;
+}
+
+.gallery .gallery-images .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 4px;
+    background-color: #f6f6f6;
+    border: 1px solid #eee
+}
+
+/* End style Gallery */

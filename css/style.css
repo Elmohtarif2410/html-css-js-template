@@ -583,3 +583,68 @@ nav ul.links li a:hover {
 }
 
 /* End style Gallery */
+
+/* Start style timeline */
+
+.timeline {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    background-color: #eee;
+}
+
+.timeline .time-content {
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px;
+}
+
+.timeline .time-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background-color: var(--main-color);
+}
+
+.timeline .time-content .year {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 15px;
+    background-color: var(--main-color);
+    color: white;
+    font-weight: bold;
+    border-radius: 7px;
+}
+
+.timeline .time-content article {
+    background-color: white;
+    width: calc(50% - 25px);
+    padding: 25px;
+    border-radius: 7px;
+}
+
+.timeline .time-content article.left {float: left}
+.timeline .time-content article.right {float: right}
+
+.timeline .time-content article h3 {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    color: var(--main-color)
+}
+
+.timeline .time-content article p {
+    color: var(--text-color);
+    line-height: var(--line-height);
+}
+
+/* End style timeline */
+
+
+/* Start style   */
+
+/* End style   */

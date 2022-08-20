@@ -595,7 +595,7 @@ nav ul.links li a:hover {
 .timeline .time-content {
     position: relative;
     overflow: hidden;
-    padding-top: 70px;
+    padding-top: 25px;
 }
 
 .timeline .time-content::before {
@@ -610,26 +610,71 @@ nav ul.links li a:hover {
 }
 
 .timeline .time-content .year {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: fit-content;
+    margin: 25px auto;
     padding: 10px 15px;
     background-color: var(--main-color);
     color: white;
     font-weight: bold;
     border-radius: 7px;
+    clear: both;
 }
 
 .timeline .time-content article {
     background-color: white;
     width: calc(50% - 25px);
     padding: 25px;
+    margin-bottom: 25px;
     border-radius: 7px;
+    position: relative;
+    clear: both;
 }
 
-.timeline .time-content article.left {float: left}
-.timeline .time-content article.right {float: right}
+.timeline .time-content article::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    border: 3px solid var(--main-color);
+    position: absolute;
+    top: 25px;
+}
+
+.timeline .time-content article::after {
+    content: "";
+    border: 10px solid;
+    position: absolute;
+    top: 25px;
+}
+
+.timeline .time-content article.left {
+    float: left
+}
+
+.timeline .time-content article.left::before {
+    right: -35px;
+}
+
+.timeline .time-content article.left::after {
+    right: 0;
+    transform: translateX(100%);
+    border-color: transparent transparent transparent #fff;
+}
+
+.timeline .time-content article.right {
+    float: right
+}
+
+.timeline .time-content article.right::before {
+    left: -35px;
+}
+
+.timeline .time-content article.right::after {
+    left: 0;
+    transform: translateX(-100%);
+    border-color: transparent #fff transparent transparent;
+}
 
 .timeline .time-content article h3 {
     text-transform: capitalize;
@@ -640,6 +685,20 @@ nav ul.links li a:hover {
 .timeline .time-content article p {
     color: var(--text-color);
     line-height: var(--line-height);
+}
+
+/* Media Quiry */
+@media (max-width: 767px) {
+    .timeline .time-content::before,
+    .timeline .time-content article::before,
+    .timeline .time-content article::after {
+        display: none;
+    }
+
+    .timeline .time-content article {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* End style timeline */

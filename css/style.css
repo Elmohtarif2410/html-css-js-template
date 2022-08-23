@@ -213,6 +213,67 @@ a {
     z-index: 1000;
 }
 
+
+/* pass sections page */
+.pass-pages {
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.pass-pages .pass {
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    margin-top: 15px;
+    cursor: pointer;
+    position: relative
+}
+
+.pass-pages .pass::before {
+    content: attr(data-pass);
+    position: absolute;
+    left: 0;
+    top: -8px;
+    transform: translateX(calc(-100% - 25px));
+    width: 100px;
+    background-color: var(--main-color);
+    padding: 5px 10px;
+    color: white;
+    text-transform: capitalize;
+    border-radius: 4px 0 0 4px;
+    display: none;
+}
+
+.pass-pages .pass::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 0;
+    transform: translateX(-25px);
+    border: 14px solid;
+    border-color: transparent transparent transparent var(--main-color);
+    display: none;
+}
+
+.pass-pages .pass:hover {
+    background-color: var(--main-color);
+}
+
+.pass-pages .pass:hover::before,
+.pass-pages .pass:hover::after {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .pass-pages {
+        display: none;
+    }
+}
 /* End style special sections */
 
 

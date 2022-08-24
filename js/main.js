@@ -129,6 +129,21 @@ function addCalssActive(elments) {
 
 
 /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$ functionality pass page section $$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+
+const passPageBultes = document.querySelectorAll(".pass-pages .pass");
+
+passPageBultes.forEach(
+    (bulte) => {
+        bulte.addEventListener("click", () => {
+            // open(`#${bulte.dataset.pass}`, "_self");
+            document.getElementById(bulte.dataset.pass).scrollIntoView({behavior: "smooth"})
+        })
+    }
+)
+
+/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$ functionality to click button nav $$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 

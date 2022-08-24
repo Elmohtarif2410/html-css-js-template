@@ -218,7 +218,7 @@ a {
 .pass-pages {
     position: fixed;
     top: 50%;
-    right: 50px;
+    right: 25px;
     transform: translateY(-50%);
     z-index: 1000;
 }
@@ -234,11 +234,17 @@ a {
     position: relative
 }
 
-.pass-pages .pass::before {
-    content: attr(data-pass);
+.pass-pages .pass::before,
+.pass-pages .pass::after {
     position: absolute;
     left: 0;
     top: -8px;
+    display: none;
+    pointer-events: none;
+}
+
+.pass-pages .pass::before {
+    content: attr(data-pass);
     transform: translateX(calc(-100% - 25px));
     width: 100px;
     background-color: var(--main-color);
@@ -246,18 +252,13 @@ a {
     color: white;
     text-transform: capitalize;
     border-radius: 4px 0 0 4px;
-    display: none;
 }
 
 .pass-pages .pass::after {
     content: "";
-    position: absolute;
-    top: -8px;
-    left: 0;
     transform: translateX(-25px);
     border: 14px solid;
     border-color: transparent transparent transparent var(--main-color);
-    display: none;
 }
 
 .pass-pages .pass:hover {

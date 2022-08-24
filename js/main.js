@@ -114,13 +114,79 @@ if (saveBackRandomSrorge !== null) {
     }
 }
 
-/************* Functions optin settings *****************/
+/*********** pass section page option ***********/
+
+// set Varible
+const settingPassSection = document.querySelectorAll(".setting .pass-option span"); // All spans option
+const passPagesContainer = document.querySelector(".pass-pages");
+
+// looping to setting pass sections span
+settingPassSection.forEach(
+    (pass) => {
+        // whene click span option
+        pass.addEventListener("click", (event) => {
+
+            // add class active to span clicked
+            addCalssActive(settingPassSection);
+
+            // whene clicked to yes option
+            if (pass.dataset.action === "yes") {
+                // show passPagesContainer
+                passPagesContainer.style.display = "block";
+                // safe option to local storge
+                localStorage.setItem("passSectionOption", "yes");
+            }
+
+            // whene clicked to yes option
+            if (pass.dataset.action === "no") {
+                // hide passPagesContainer
+                passPagesContainer.style.display = "none";
+                // safe option to local storge
+                localStorage.setItem("passSectionOption", "no")
+            }
+        })
+    }
+)
+
+/*********** pass section page option local sorage ***********/
+// set varible => local storge
+let savePassSectionSrorge = localStorage.getItem("passSectionOption");
+
+if (savePassSectionSrorge !== null) {
+
+    // remove class active from all spans & add this class to span clicked
+    settingPassSection.forEach(
+        (span) => {
+            // remove class active
+            span.classList.remove("active");
+
+            if (span.dataset.action === savePassSectionSrorge) {
+                // add class active to option selected
+                span.classList.add("active");
+            }
+        }    
+    );
+    
+    // whene safe sorge yes option 
+    if (savePassSectionSrorge === "yes") {
+        // show pass sections page
+        passPagesContainer.style.display = "block";
+    }
+
+    // whene safe sorge no option 
+    if (savePassSectionSrorge === "no") {
+        // hide pass sections page
+        passPagesContainer.style.display = "none";
+    }
+}
+
+/************* Functions option settings *****************/
 
 // function remove class active to all elements add class active to element clicked
 function addCalssActive(elments) {
     //remove class active from all elemnts
-    elments.forEach((but) => {
-        but.classList.remove("active");
+    elments.forEach((ele) => {
+        ele.classList.remove("active");
     });
 
     // add class list in element clicked
@@ -132,20 +198,45 @@ function addCalssActive(elments) {
 $$$$$$$$$$$$$$$ functionality pass page section $$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 
+/******************** pass page section  *********************/
 const passPageBultes = document.querySelectorAll(".pass-pages .pass");
 
+// looping on bultes pass page section
 passPageBultes.forEach(
     (bulte) => {
+        // when bulute clicked send to section
         bulte.addEventListener("click", () => {
             // open(`#${bulte.dataset.pass}`, "_self");
+            // send to section  > id = data-pass
             document.getElementById(bulte.dataset.pass).scrollIntoView({behavior: "smooth"})
         })
     }
 )
 
+
 /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-$$$$$$$$$$$$$$ functionality to click button nav $$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$ functionality to navgation $$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+
+/******************** navgation pass links  *********************/
+const navLinksPass = document.querySelectorAll(".landding .links a");
+
+// looping on link pass page section
+navLinksPass.forEach(
+    (link) => {
+        // when link clicked send to section
+        link.addEventListener("click", (e) => {
+            // do not run action link
+            e.preventDefault();
+            // send to section  > id = data-pass
+            document.getElementById(link.dataset.pass).scrollIntoView({behavior: "smooth"});
+            // add class active to link clicked
+            addCalssActive(navLinksPass);
+        })
+    }
+)
+
+/************** functionality to click button nav **************/
 
 // navigtion toggler button 
 const togglerButtonNav = document.querySelector("nav .toggler");

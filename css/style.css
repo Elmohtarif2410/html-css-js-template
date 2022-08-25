@@ -940,6 +940,86 @@ nav ul.links li a:hover {
 
 /* End style Testimonials  */
 
+/* Start style  contact */
+
+.contact {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+
+.contact form {
+    display: flex;
+    column-gap: 30px;
+    row-gap: 20px;
+}
+
+.contact form article {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact form input:not([type="submit"]),
+.contact form textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    border-radius: 7px;
+    color: var(--text-color);
+    caret-color: var(--main-color);
+}
+
+.contact form input:last-of-type {
+    margin-bottom: 0
+}
+
+.contact form input:not([type="submit"]):focus,
+.contact form textarea:focus {
+    border: 1px solid var(--main-color);
+}
+
+.contact form input:not([type="submit"])::placeholder,
+.contact form textarea::placeholder {
+    transition: var(--main-transition);
+}
+
+.contact form input:not([type="submit"]):focus::placeholder,
+.contact form textarea:focus::placeholder {
+    opacity: 0;
+}
+
+.contact form input[type="submit"] {
+    padding: 15px 20px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: var(--main-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.contact form textarea {
+    min-height: 180px;
+    flex: 1
+}
+
+/* Media Quiry*/
+@media (max-width: 767px) {
+    .contact form {
+        flex-direction: column;
+    }
+
+    .contact form article {
+        width: 100%;
+    }
+}
+
+/* End style  contact */
 
 
 

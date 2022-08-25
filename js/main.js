@@ -193,6 +193,23 @@ function addCalssActive(elments) {
     event.target.classList.add("active")
 }
 
+/************* Functions Reset option settings ***************/
+const resetOptionsButton = document.querySelector(".setting .rest-option");
+
+// when clicked to reset Options Button
+resetOptionsButton.onclick = () => {
+
+    let alert = window.confirm("do you sure rest options");
+
+    if (alert === true) {
+         // clean local storge => remove setting option 
+        localStorage.clear()
+
+        // reload to page becose rest this setting
+        window.location.reload();
+    }
+}
+
 
 /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$ functionality pass page section $$$$$$$$$$$$$$$$$

@@ -201,6 +201,26 @@ a {
     opacity: 1;
 }
 
+.setting article.option button.rest-option {
+    display: block;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    color: white;
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 25px;
+    margin: auto;
+    line-height: 1;
+    cursor: pointer;
+    opacity: .8;
+    transition: var(--main-transition);
+}
+
+.setting article.option button.rest-option:hover {
+    opacity: 1;
+}
 
 /* popup overly style */
 

@@ -258,10 +258,38 @@ navLinksPass.forEach(
 // navigtion toggler button 
 const togglerButtonNav = document.querySelector("nav .toggler");
 
-togglerButtonNav.onclick = () => {
+togglerButtonNav.onclick = (e) => {
+    // strop propagation becuse click not closed
+    e.stopPropagation()
     // toggle class active => show and hide menu
     togglerButtonNav.classList.toggle("active")
 }
+
+// close menu links when click body and link clicked 
+
+const menuLinks = document.querySelector("nav .links");
+const LinksNavgation = document.querySelectorAll("nav .links a");
+
+// stop propagation to menu ul links
+menuLinks.addEventListener("click", (e) => e.stopPropagation())
+
+// when clicked to body not nav button and menu links
+document.addEventListener("click", (e) => {
+
+    if (e.target !== togglerButtonNav && e.target !== menuLinks) {
+
+        // closed menu
+        togglerButtonNav.classList.remove("active")
+
+    }
+});
+
+LinksNavgation.forEach( (link) => {
+
+    link.onclick = _ => togglerButtonNav.classList.remove("active"); // closed menu
+})
+
+window.addEventListener("scroll", _ => togglerButtonNav.classList.remove("active")); // closed menu
 
 /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$ functionality to background landding page $$$$$$$$$$$

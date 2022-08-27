@@ -31,7 +31,11 @@ body {
     margin-right: auto
 }
 
-@media (min-width: 768) {
+@media (min-width: 567px) {
+    .container {width: 540px}
+}
+
+@media (min-width: 768px) {
     .container {width: 750px}
 }
 

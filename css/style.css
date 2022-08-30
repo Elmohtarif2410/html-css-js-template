@@ -17,7 +17,8 @@ html {
     --secound-color: #607d8b;
     --text-color: #777;
     --main-transition: .4s;
-    --line-height: 1.6
+    --line-height: 1.6;
+    --background-color: #eee;
 }
 
 body {
@@ -63,6 +64,53 @@ a {
     text-decoration: none;
 }
 
+body > section:nth-of-type(odd),
+body > section.testimonials {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding)
+}
+
+body > section:nth-of-type(even):not(.testimonials) {
+    margin-top: var(--main-padding);
+    margin-bottom: var(--main-padding);
+    padding: 0;
+    background-color: var(--background-color);
+    position: relative;
+}
+
+body > section:nth-of-type(even):not(.testimonials)::before {
+    content: "";
+    background-image: url(../images/background-top-desktop.svg);
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    transform: translateY(-100%);
+    width: 100%;
+    height: var(--main-padding);
+}
+
+body > section:nth-of-type(even):not(.testimonials)::after {
+    content: "";
+    background-image: url(../images/background-bottom-desktop.svg);
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    width: 100%;
+    height: var(--main-padding);
+}
+
+@media (max-width: 566px) {
+    body > section:nth-of-type(even):not(.testimonials)::before {
+        background-image: url(../images/background-top-moblie.svg);
+    }
+    body > section:nth-of-type(even):not(.testimonials)::after {
+        background-image: url(../images/background-bottom-moblie.svg);
+    }
+}
+
 /********************** End Style Global Rouls ***********************/
 
 /********************** start Style commpotants ***********************/
@@ -80,6 +128,7 @@ a {
     border: 2px solid var(--main-color);
     position: relative;
     overflow: hidden;
+    border-radius: 7px
 }
 
 .main-heading::before {
@@ -299,6 +348,28 @@ a {
         display: none;
     }
 }
+
+/* scroll to top */
+.scroll-top {
+    position: fixed;
+    bottom: 50px;
+    right: 25px;
+    z-index: 10;
+    background-color: var(--main-color);
+    color: white;
+    padding: 6px 10px;
+    font-size: 24px;
+    border-radius: 7px;
+    cursor: pointer;
+    opacity: .8;
+    transition: var(--main-transition);
+    display: none
+}
+
+.scroll-top:hover {
+    opacity: 1;
+}
+
 /* End style special sections */
 
 
@@ -466,11 +537,6 @@ nav ul.links li a:hover {
 
 /* start style about us */
 
-.about-us {
-    padding-top: var(--main-padding);
-    padding-bottom: var(--main-padding);
-}
-
 .about-us .container {
     display: flex;
     align-items: center;
@@ -530,12 +596,6 @@ nav ul.links li a:hover {
 
 /* Start style skills */
 
-.skills {
-    padding-top: var(--main-padding);
-    padding-bottom: var(--main-padding);
-    background-color: #eee;
-}
-
 .skills article.skill {
     display: flex;
     align-items: center;
@@ -594,11 +654,6 @@ nav ul.links li a:hover {
 /* End style skills */
 
 /* Start style Gallery */
-
-.gallery {
-    padding-top: var(--main-padding);
-    padding-bottom: var(--main-padding);
-}
 
 .gallery .gallery-images {
     display: grid;
@@ -671,12 +726,6 @@ nav ul.links li a:hover {
 /* End style Gallery */
 
 /* Start style timeline */
-
-.timeline {
-    padding-top: var(--main-padding);
-    padding-bottom: var(--main-padding);
-    background-color: #eee;
-}
 
 .timeline .time-content {
     position: relative;
@@ -791,11 +840,6 @@ nav ul.links li a:hover {
 
 /* Start style Features  */
 
-.features {
-    padding-top: var(--main-padding);
-    padding-bottom: var(--main-padding)
-}
-
 .features .features-content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
@@ -850,8 +894,6 @@ nav ul.links li a:hover {
 /* Start style Testimonials  */
 
 .testimonials {
-    padding-top: var(--main-padding);
-    padding-bottom: var(--main-padding);
     position: relative;
 }
 
@@ -946,11 +988,6 @@ nav ul.links li a:hover {
 
 /* Start style  contact */
 
-.contact {
-    padding-top: var(--main-padding);
-    padding-bottom: var(--main-padding);
-}
-
 .contact form {
     display: flex;
     column-gap: 30px;
@@ -1025,8 +1062,25 @@ nav ul.links li a:hover {
 
 /* End style  contact */
 
+/* Start style Footer  */
 
+footer.footer {
+    padding: 35px 20px;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    text-transform: capitalize;
+}
 
-/* Start style   */
+footer.footer a {
+    font-weight: bold;
+    color: var(--main-color);
+    opacity: .8;
+    transition: var(--main-transition);
+}
 
-/* End style   */
+footer.footer a:hover {
+    opacity: 1;
+}
+
+/* End style  Footer */

@@ -55,7 +55,7 @@ if (safeColorStorge !== null) {
 
 /*********** Random background option ***********/
 
-let randomBackgroundPlay;
+let randomBackgroundPlay = true;
 
 // add and remove class active to spans
 const settingRandomBackSpan = document.querySelectorAll(".setting .random-option span"); // All spans option
@@ -230,6 +230,44 @@ passPageBultes.forEach(
     }
 )
 
+/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$ functionality to scroll to top $$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+
+// scroll To Top Button
+const scrollToTopButton = document.querySelector(".scroll-top");
+
+// Function Check scrolling page 
+const checkScrollingPage = () => {
+
+    // window Scroll Vertical
+    const windowScrollVertical = window.scrollY;
+
+    // when window Scroll Vertical letter than 700
+    if (windowScrollVertical >= 700) {
+
+        // show scroll To Top Button
+        scrollToTopButton.style.display = "block"
+
+    } else {
+
+        // hide scroll To Top Button
+        scrollToTopButton.style.display = "none"
+    }
+}
+
+// when scrolling window check (show  / hide) => scroll To Top Button
+window.addEventListener("scroll", checkScrollingPage );
+
+// when window load checker (show  / hide) => scroll To Top Button
+window.addEventListener("load", checkScrollingPage );
+
+// button scroll To Top Button action
+scrollToTopButton.addEventListener("click", (e) => {
+
+    // send top page
+    window.scrollTo(0, 0)
+});
 
 /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$ functionality to navgation $$$$$$$$$$$$$$$$$$$

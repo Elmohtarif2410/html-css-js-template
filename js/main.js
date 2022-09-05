@@ -357,7 +357,7 @@ function randomBackgroundImage() {
             // style css => becouse Nice transtion  
             landdingPageSection.style.transition = "1s";
             // Change the background randomly from one of the elements of the array
-            landdingPageSection.style.backgroundImage = `url(../images/landding-${imagesLanddingArray[randomNumber]}.jpg)`;
+            landdingPageSection.style.backgroundImage = `url(images/landding-${imagesLanddingArray[randomNumber]}.jpg)`;
         
         }, 4000);
 
